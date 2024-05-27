@@ -1,0 +1,22 @@
+form {
+  margin: 0 auto;
+  background-color: #fdccff;
+  width: fit-content;
+}
+table tr td {
+  border: hidden;
+}
+.container {
+  text-align: center;
+}
+.tieude {
+  background-color: #cfffff;
+}
+td.nut {
+  text-align: center;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  border-radius: 10px;
+}

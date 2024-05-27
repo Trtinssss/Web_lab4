@@ -1,0 +1,9 @@
+table{
+    background-color: #fdccff;
+    border: 1px solid #c796ff;
+}
+th{
+    background-color: #cfffff;
+    font-weight:bold;
+    text-align: center;
+}
