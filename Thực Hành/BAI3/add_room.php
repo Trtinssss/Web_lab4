@@ -2,12 +2,9 @@
 include "connect.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Lấy giá trị từ form
     $maphongban = $_POST['MaPB'];
     $tenphongban = $_POST['TenPB'];
     $machinhanh = $_POST['MaCN'];
-
-    // Truy vấn để lấy TenCongTy từ MaCongTy
     $query = "SELECT TenChiNhanh FROM chinhanh WHERE MaChiNhanh = ?";
     $stmt = $connect->prepare($query);
     if ($stmt === false) {
@@ -22,10 +19,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($row) {
         $tenchinhanh = $row['TenChiNhanh'];
 
-        // In ra TenChiNhanh để kiểm tra
         echo "Tên chi nhánh tìm thấy: " . htmlspecialchars($tenchinhanh) . "<br>";
 
-        // Tiếp tục thực hiện truy vấn chèn dữ liệu vào bảng phongban
         $insert_query = "INSERT INTO phongban (MaPhong, TenPhong, MaChiNhanh) VALUES (?, ?, ?)";
         $insert_stmt = $connect->prepare($insert_query);
         if ($insert_stmt === false) {

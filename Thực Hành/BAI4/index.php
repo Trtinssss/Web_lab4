@@ -16,7 +16,6 @@ while ($row_pb = $result_phongban->fetch_assoc()) {
     $phongban_option .= "<option value='{$row_pb['tenphong']}'>{$row_pb['tenphong']}</option>";
 }
 
-// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
     $tenchinhanh = $_POST['tenchinhanh'];
     $tenphong = $_POST['tenphong'];
@@ -25,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
     $luongthang = $_POST['luongthang'];
     $gioiTinh = isset($_POST['gioiTinh']) ? 'Nam' : 'Nữ';
 
-    // Insert data into NHANVIEN table
     $sql_insert = "INSERT INTO NHANVIEN (manhanvien, tennhanvien, luongthang, gioiTinh, maPhong) 
                    VALUES ('$manhanvien', '$tennhanvien', '$luongthang', '$gioiTinh', 
                    (SELECT maPhong FROM PHONGBAN WHERE tenphong = '$tenphong'))";
